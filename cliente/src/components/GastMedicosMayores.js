@@ -5,9 +5,9 @@ import Titulo from './Titulo.js';
 
 class GastMedicosMayores extends Component {
 	constructor(){
-
 		super()
 			this.state = {
+				tipo: 'Gastos Medicos Mayores',
 				nombre: '',
 				edad: '',
 				telefono: '',
@@ -18,22 +18,23 @@ class GastMedicosMayores extends Component {
 			 this.handleChange = this.handleChange.bind(this)
 			 this.handleSubmit = this.handleSubmit.bind(this)
 	}
-		handleChange = e =>{
-			this.setState({[e.target.name]: e.target.value})
-		}
-		async handleSubmit(e){
-			e.preventDefault()
+	handleChange = e =>{
+		this.setState({[e.target.name]: e.target.value})
+	}
+	async handleSubmit(e){
+		e.preventDefault()
 			
-			const { nombre, edad, telefono, correo, estado, comentarios }= this.state
-			const form = await axios.post('/api/form', {
-				nombre,
-				edad,
-				telefono,
-				correo,
-				estado,
-				comentarios
-			})
-		}
+		const { tipo, nombre, edad, telefono, correo, estado, comentarios }= this.state
+		const form = await axios.post('/api/form', {
+			tipo,
+			nombre,
+			edad,
+			telefono,
+			correo,
+			estado,
+			comentarios
+		})
+	}
 	
 	render() {
 		

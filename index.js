@@ -9,7 +9,8 @@ app.use(bodyParser.urlencoded({ extended:false }))
 app.post('/api/form', (req, res) => {
 	nodemailer.createTestAccount((err, account)=>{
 		const htmlEmail = `
-			<h3>Contact Details</h3>
+			<h2>${req.body.tipo}</h2>
+			<h3>Detalles del contacto</h3>
 			<ul>
 				<li>Nombre: ${req.body.nombre}</li>
 				<li>Edad: ${req.body.edad}</li>
@@ -17,7 +18,23 @@ app.post('/api/form', (req, res) => {
 				<li>Correo: ${req.body.correo}</li>
 				<li>Estado: ${req.body.estado}</li>
 			</ul>
-			<h3>Mensaje</h3>
+			<h3>Poliza Familiar</h3>
+			<p>${req.body.familiar}</p>
+			<h3>Autos</h3>
+			<ul>
+				<li>Marca: ${req.body.marca}</li>
+				<li>Carroceria: ${req.body.carroceria}</li>
+				<li>Modelo: ${req.body.modelo}</li>
+				<li>Cobertura: ${req.body.cobertura}</li>
+			</ul>
+			<h3>Empresarial</h3>
+			<ul>
+				<li>Nombre de la empresa: ${req.body.empresa}</li>
+				<li>Giro: ${req.body.giro}</li>
+				<li>Direccion: ${req.body.direccion}</li>
+				<li>Direcciones: ${req.body.direcciones}</li>
+			</ul>
+			<h3>Comentarios</h3>
 			<p>${req.body.comentarios}</p>
 		`
 		let transporter = nodemailer.createTransport({
