@@ -13,6 +13,7 @@ class GastMedicosMayores extends Component {
 				telefono: '',
 				correo: '',
 				estado: '',
+				familiar: '',
 				comentarios: ''
 			}
 			 this.handleChange = this.handleChange.bind(this)
@@ -24,7 +25,7 @@ class GastMedicosMayores extends Component {
 	async handleSubmit(e){
 		e.preventDefault()
 			
-		const { tipo, nombre, edad, telefono, correo, estado, comentarios }= this.state
+		const { tipo, nombre, edad, telefono, correo, estado, familiar, comentarios }= this.state
 		const form = await axios.post('/api/form', {
 			tipo,
 			nombre,
@@ -32,6 +33,7 @@ class GastMedicosMayores extends Component {
 			telefono,
 			correo,
 			estado,
+			familiar,
 			comentarios
 		})
 	}

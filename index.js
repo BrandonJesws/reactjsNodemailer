@@ -8,35 +8,58 @@ app.use(bodyParser.urlencoded({ extended:false }))
 
 app.post('/api/form', (req, res) => {
 	nodemailer.createTestAccount((err, account)=>{
-		const htmlEmail = `
-			<h2>${req.body.tipo}</h2>
+		var htmlEmail = ''
+		const tipoServ = `${req.body.tipo}`
+		if(tipoServ=='Gastos Medicos Mayores'||tipoServ=='Vida'){
+			htmlEmail = `
+			<h1>${req.body.tipo}</h1>
 			<h3>Detalles del contacto</h3>
 			<ul>
-				<li>Nombre: ${req.body.nombre}</li>
-				<li>Edad: ${req.body.edad}</li>
-				<li>Telefono: ${req.body.telefono}</li>
-				<li>Correo: ${req.body.correo}</li>
-				<li>Estado: ${req.body.estado}</li>
+				<li><b>Nombre:</b> ${req.body.nombre}</li>
+				<li><b>Edad:</b> ${req.body.edad}</li>
+				<li><b>Telefono:</b> ${req.body.telefono}</li>
+				<li><b>Correo: </b>${req.body.correo}</li>
+				<li><b>Estado:</b> ${req.body.estado}</li>
 			</ul>
 			<h3>Poliza Familiar</h3>
 			<p>${req.body.familiar}</p>
-			<h3>Autos</h3>
+			<h3>Comentarios</h3>
+			<p>${req.body.comentarios}</p>
+		`
+		}
+		if(tipoServ=='Empresarial'){
+			htmlEmail = `
+			<h1>${req.body.tipo}</h1>
+			<h3>Detalles del contacto</h3>
 			<ul>
-				<li>Marca: ${req.body.marca}</li>
-				<li>Carroceria: ${req.body.carroceria}</li>
-				<li>Modelo: ${req.body.modelo}</li>
-				<li>Cobertura: ${req.body.cobertura}</li>
-			</ul>
-			<h3>Empresarial</h3>
-			<ul>
-				<li>Nombre de la empresa: ${req.body.empresa}</li>
-				<li>Giro: ${req.body.giro}</li>
-				<li>Direccion: ${req.body.direccion}</li>
-				<li>Direcciones: ${req.body.direcciones}</li>
+				<li><b>Nombre de la empresa:</b> ${req.body.empresa}</li>
+				<li><b>Telefono:</b> ${req.body.telefono}</li>
+				<li><b>Correo:</b> ${req.body.correo}</li>
+				<li><b>Giro:</b> ${req.body.giro}</li>
+				<li><b>Direccion:</b> ${req.body.direccion}</li>
+				<li><b>Direcciones:</b> ${req.body.direcciones}</li>
 			</ul>
 			<h3>Comentarios</h3>
 			<p>${req.body.comentarios}</p>
 		`
+		}
+		if(tipoServ=='Autos'){
+			htmlEmail = `
+			<h1>${req.body.tipo}</h1>
+			<h3>Detalles del contacto</h3>
+			<ul>
+				<li><b>Telefono:</b> ${req.body.telefono}</li>
+				<li><b>Correo:</b> ${req.body.correo}</li>
+				<li><b>Estado:</b> ${req.body.estado}</li>
+				<li><b>Marca: </b>${req.body.marca}</li>
+				<li><b>Carroceria:</b> ${req.body.carroceria}</li>
+				<li><b>Modelo:</b> ${req.body.modelo}</li>
+				<li><b>Cobertura:</b> ${req.body.cobertura}</li>
+			</ul>
+			<h3>Comentarios</h3>
+			<p>${req.body.comentarios}</p>
+		`
+		}
 		let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

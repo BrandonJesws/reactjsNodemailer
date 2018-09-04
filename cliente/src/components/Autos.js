@@ -29,6 +29,7 @@ class Autos extends Component {
 			
 		const { tipo, marca, carroceria, modelo, cobertura, estado, telefono, correo, comentarios }= this.state
 		const form = await axios.post('/api/form', {
+			tipo,
 			marca,
 			carroceria,
 			modelo,

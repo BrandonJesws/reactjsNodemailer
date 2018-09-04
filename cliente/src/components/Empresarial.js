@@ -27,6 +27,7 @@ class Empresarial extends Component {
 			
 		const { tipo, empresa, giro, telefono, correo, direccion, direcciones, comentarios }= this.state
 		const form = await axios.post('/api/form', {
+			tipo,
 			empresa,
 			giro,
 			telefono,
