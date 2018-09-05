@@ -46,11 +46,11 @@ class Empresarial extends Component {
 						<form onSubmit={this.handleSubmit} className="contact100-form validate-form">
 							<div className="form-group">
 								<label htmlFor="InputName">Nombre de la empresa o razón social:</label>
-								<input type="text" className="form-control" placeholder="Nombre" id="empresa" name="empresa" autocompleter="off"/>
+								<input type="text" className="form-control" placeholder="Nombre" id="empresa" name="empresa" autocompleter="off" onChange={this.handleChange}/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="InputName">Giro de la empresa:</label>
-								<input type="text" className="form-control" placeholder="Giro" id="giro" name="giro" autocompleter="off"/>
+								<input type="text" className="form-control" placeholder="Giro" id="giro" name="giro" autocompleter="off" onChange={this.handleChange}/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="InputTelefono">Télefono</label>
@@ -62,11 +62,11 @@ class Empresarial extends Component {
 							</div>
 							<div className="form-group">
 								<label htmlFor="FormControlTextarea2">Direccion de la empresa o ubicacion del riesgo:</label>
-								<textarea className="form-control"rows="3" id="direccion" name="direccion"></textarea>
+								<textarea className="form-control"rows="3" id="direccion" name="direccion" onChange={this.handleChange}></textarea>
 							</div>
 							<div className="form-group">
 								<label htmlFor="FormControlTextarea1">Si hay varias ubicaciones, favor de mencionar:</label>
-								<textarea className="form-control"rows="8" id="direcciones" name="direcciones"></textarea>
+								<textarea className="form-control"rows="8" id="direcciones" name="direcciones" onChange={this.handleChange}></textarea>
 							</div>
 							<div className="form-group">
 								<label htmlFor="FormControlTextarea2">Comentarios:</label>

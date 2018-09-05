@@ -49,19 +49,19 @@ class Autos extends Component {
 						<form onSubmit={this.handleSubmit} className="contact100-form validate-form">
 							<div className="form-group">
 								<label htmlFor="InputName">Marca</label>
-								<input type="text" className="form-control" placeholder="Marca" id="marca" name="marca" autocompleter="off"/>
+								<input type="text" className="form-control" placeholder="Marca" id="marca" name="marca" autocompleter="off" onChange={this.handleChange}/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="InputName">Carroceria</label>
-								<input type="text" className="form-control" placeholder="Carroceria" id="carroceria" name="carroceria" autocompleter="off"/>
+								<input type="text" className="form-control" placeholder="Carroceria" id="carroceria" name="carroceria" autocompleter="off" onChange={this.handleChange}/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="InputName">Modelo</label>
-								<input type="text" className="form-control" placeholder="Modelo" id="modelo" name="modelo" autocompleter="off"/>
+								<input type="text" className="form-control" placeholder="Modelo" id="modelo" name="modelo" autocompleter="off" onChange={this.handleChange}/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="FormControlEstado">Cobertura</label>
-								<select className="form-control" id="cobertura">
+								<select className="form-control" id="cobertura" name="cobertura" onChange={this.handleChange}>
 									<option>Cobertura</option>
 									<option>Aguascalientes</option>
 									<option>Baja California</option>
